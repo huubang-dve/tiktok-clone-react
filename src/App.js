@@ -10,7 +10,7 @@ function App() {
           className="App-logo"
           alt="logo"
         />
-        <p>hello xin chao moi người</p>
+        <p>hello xin chao moi nguoi toi la to huu bang</p>
         <a
           className="App-link"
           href="https://reactjs.org"
