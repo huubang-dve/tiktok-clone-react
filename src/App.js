@@ -1,27 +1,31 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
 
-function App() {
+const App = () => {
+  const [list, setList] = useState([]);
+  const [listValue, setListValue] = useState("");
+
+  const abc = list.map((item, index) => {
+    return <li key={index}>{item.name}</li>;
+  });
+
+  const addList = () => {
+    if (!listValue.trim()) return;
+    setList([...list, { name: listValue }]);
+    setListValue("");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img
-          src={logo}
-          className="App-logo"
-          alt="logo"
-        />
-        <p>hello xin chao moi nguoi toi la to huu bang</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        type="text"
+        value={listValue}
+        onChange={(e) => setListValue(e.target.value)}
+      />
+      <button onClick={addList}>Add</button>
+      <ul>{abc}</ul>
     </div>
   );
-}
+};
 
 export default App;
